@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="template.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="bg">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="Login()">Login</button>
+                <button type="button" class="toggle-btn" onclick="Register()">Register</button>
+            </div>
+            
+            <form id="Login" class="input-group">
+                <div class="input-container">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" class="input-field" placeholder="Email" required>
+                </div>
+                <div class="input-container">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" class="input-field" id="login-password" placeholder="Password" required>
+                    <a class="fa-solid fa-eye toggle-password" onclick="togglePassword('login-password')"></a>
+                </div>
+                <button type="button" class="submit-btn">Log in</button>
+            </form>
+            <form id="Register" class="input-group">
+                <div class="input-container">
+                    <i class="fa-solid fa-id-badge"></i>
+                    <input type="text" class="input-field" placeholder="User Id" required>
+                </div>
+                <div class="input-container">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" class="input-field" placeholder="Email" required>
+                </div>
+                <div class="input-container">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" class="input-field" id="register-password" placeholder="Password" required>
+                    <a class="fa-solid fa-eye toggle-password" onclick="togglePassword('register-password')"></a>
+                </div>
+                <div class="input-container">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" class="input-field" placeholder="Name" required>
+                </div>
+                <button type="button" class="submit-btn">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    var x = document.getElementById("Login");
+    var y = document.getElementById("Register");
+    var z = document.getElementById("btn");
+
+    function Register(){
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+    }
+    function Login(){
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+    }
+    window.onload = function() {
+        var defaultView = "login"; 
+        if (defaultView === "login") {
+            Login();
+        } else {
+            Register();
+        }
+    }
+
+    function togglePassword(inputId) {
+        var inputField = document.getElementById(inputId);
+        var icon = inputField.nextElementSibling;
+        if (inputField.type === "password") {
+            inputField.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            inputField.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+</script>
+</html>

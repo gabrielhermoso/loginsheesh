@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Website</title>
+    <link rel="stylesheet" href="etheme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MyStore</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" id="loginBtn"><i class="fas fa-user"></i></a></li>
+                    <li><a href="#" id="cartBtn"><i class="fas fa-shopping-cart"></i></a></li> <!-- Added cart icon -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    
+    <main>
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Welcome to MyStore</h2>
+                <p>Your one-stop shop for everything you need.</p>
+                <a href="#" class="shop-btn">Shop Now</a>
+            </div>
+        </div>
+        <section class="products">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="product-list">
+                    <!-- Product items -->
+                    <div class="product">
+                        <img src="product1.jpg" alt="Product 1">
+                        <h3>Product 1</h3>
+                        <p>$29.99</p>
+                        <a href="#" class="btn" onclick="addToCart('Product 1', 29.99)">Add to Cart</a>
+                    </div>
+                    <div class="product">
+                        <img src="product2.jpg" alt="Product 2">
+                        <h3>Product 2</h3>
+                        <p>$49.99</p>
+                        <a href="#" class="btn" onclick="addToCart('Product 2', 49.99)">Add to Cart</a>
+                    </div>
+                    <!-- More products -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MyStore. All Rights Reserved.</p>
+        </div>
+    </footer>
+     <!-- Cart Modal -->
+<div id="cartModal" class="modal">
+    <div class="cart-content">
+        <!-- Cart items -->
+        <button id="exitCartBtn" class="exit-btn"><i class="fas fa-times"></i></button> <!-- Added exit icon -->
+    </div>
+</div>
+
+
+    <!-- Login and Registration Form -->
+    <div id="loginModal" class="modal">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="Login()">Login</button>
+                <button type="button" class="toggle-btn" onclick="Register()">Register</button>
+                <button id="exitAccountModalBtn" class="exit-btn" onclick="exitAccountModal()">Exit</button>
+            </div>
+            
+            <form id="Login" class="input-group">
+                <div class="input-container">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" class="input-field" placeholder="Email" required>
+                </div>
+                <div class="input-container">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" class="input-field" id="login-password" placeholder="Password" required>
+                    <a class="fa-solid fa-eye toggle-password" onclick="togglePassword('login-password')"></a>
+                </div>
+                <button type="button" class="submit-btn">Log in</button>
+            </form>
+            <form id="Register" class="input-group">
+                <div class="input-container">
+                    <i class="fa-solid fa-id-badge"></i>
+                    <input type="text" class="input-field" placeholder="User Id" required>
+                </div>
+                <div class="input-container">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" class="input-field" placeholder="Email" required>
+                </div>
+                <div class="input-container">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" class="input-field" id="register-password" placeholder="Password" required>
+                    <a class="fa-solid fa-eye toggle-password" onclick="togglePassword('register-password')"></a>
+                </div>
+                <div class="input-container">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" class="input-field" placeholder="Name" required>
+                </div>
+                <button type="button" class="submit-btn">Register</button>
+            </form>
+            
+        </div>
+    </div>
+    <script src="etheme.js"></script>
+</body>
+</html>
